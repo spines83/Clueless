@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="scripts/lib/bootstrap.css">
+    <script src="scripts/lib/jquery-2.1.0.js"></script>
+    <script src="scripts/lib/bootstrap.js"></script>
+    <script src="scripts/sockethandler.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button id="messageButton" class="btn btn-default" type="button">Send Message!</button>
+              </span>
+              <input id="messageInput" type="text" class="form-control">
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+    <br>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">Messages Received</div>
+            <!-- List group -->
+            <ul id="listGroup" class="list-group">
+                <!--<li class="list-group-item">Client Listening!</li>-->
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
