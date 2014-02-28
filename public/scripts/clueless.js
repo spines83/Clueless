@@ -144,16 +144,19 @@ function Player(piece, cname, room) {
     this.currentRoom = room;
 }
 
+// depreciated drawBoard(), not necessary at all, replaced with <img> tag in a div
+// on test.html to draw the board directly. No need for html canvas.
+//
 // drawBoard() places the board.svg image into the html canvas with id="boardCanvas"
-function drawBoard(){
-    var canvas = document.getElementById('boardCanvas');
-    var ctx = canvas.getContext('2d');
-    var img = document.createElement('img');
-    img.onload = function(){
-        ctx.drawImage(this,0,0,width,height);
-    }
-    img.src='/assets/board.svg';
-}
+//function drawBoard(){
+//    var canvas = document.getElementById('boardCanvas');
+//    var ctx = canvas.getContext('2d');
+//    var img = document.createElement('img');
+//    img.onload = function(){
+//        ctx.drawImage(this,0,0,width,height);
+//    }
+//    img.src='/assets/board.svg';
+//}
 
 // drawPieces() places all the board game pieces on the html canvas with id="playerCanvas"
 //		and initializes the stage used to draw objects with the EaselJS framework
