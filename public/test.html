@@ -12,7 +12,9 @@
 
     <!-- include the EaselJS framework for html canvas manipulation, version 0.5.0 -->
     <script src="http://code.createjs.com/easeljs-0.5.0.min.js"></script>
+    <script src="scripts/lib/jquery-2.1.0.js"></script>
     <script src="scripts/clueless.js"></script>
+    
 </head>
 <body onload="drawPieces();">
     	<div class="board">
@@ -21,5 +23,6 @@
 	<div class="player">
 		<canvas id="playerCanvas" width="800" height="600" />
 	</div>
+	<div class="messages" id="messages"></div>
 </body>
 </html>

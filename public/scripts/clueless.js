@@ -1,9 +1,51 @@
+var ws = new WebSocket('ws://localhost:4000');
+
 var stage; 	 	   //the board canvas object
 var width = 800;   //width of the board game in pixels
 var height = 600;  //height of the board game in pixels
 var rooms = new Array();   //array of rooms and their properties
 var player = {}; 	   	   //Player object, holds reference to player's piece object and player's character name
+var green;
+var mustard;
+var peacock;
+var plum;
+var scarlet;
+var white;
 var pieceSelected = false; //set to true once player select's their piece
+
+// Handler for messages coming from the server
+// sets the new room location of a piece
+ws.onmessage = function(event){
+	obj = jQuery.parseJSON(event.data);
+	var position = refinePosition(obj.player,obj.room); //get the x, y coordinates to move the piece
+	switch(obj.player) { //based on the suspect name, move the piece
+            case 'green':
+                green.x = position[0];
+                green.y = position[1];
+                break;
+            case 'mustard':
+                mustard.x = position[0];
+                mustard.y = position[1];
+                break;
+            case 'peacock':
+                peacock.x = position[0];
+                peacock.y = position[1];
+                break;
+            case 'plum':
+                plum.x = position[0];
+                plum.y = position[1];
+                break;
+            case 'scarlet':
+                scarlet.x = position[0];
+                scarlet.y = position[1];
+                break;
+            case 'white':
+                white.x = position[0];
+                white.y = position[1];
+                break;
+        }
+        stage.update();
+};
 
 // define room properties --------------------------------------------------------------------------------------------------------------------------------------------
 //
@@ -171,7 +213,7 @@ function drawPieces() {
     var slabel = new createjs.Text("S", "bold 24px Serif", "#941500");
     slabel.textAlign = "center";
     slabel.y = -13;
-    var scarlet = new createjs.Container();
+    scarlet = new createjs.Container();
     scarlet.x = 272;
     scarlet.y = 373;
     scarlet.addChild(scircle,slabel);
@@ -186,7 +228,7 @@ function drawPieces() {
     var mlabel = new createjs.Text("M", "bold 24px Serif", "#9C7A00");
     mlabel.textAlign = "center";
     mlabel.y = -13;
-    var mustard = new createjs.Container();
+    mustard = new createjs.Container();
     mustard.x = 292;
     mustard.y = 415;
     mustard.addChild(mcircle, mlabel);
@@ -200,7 +242,7 @@ function drawPieces() {
     var wlabel = new createjs.Text("W", "bold 24px Serif", "#000000");
     wlabel.textAlign = "center";
     wlabel.y = -11;
-    var white = new createjs.Container();
+    white = new createjs.Container();
     white.x = 277;
     white.y = 453;
     white.addChild(wcircle, wlabel);
@@ -215,7 +257,7 @@ function drawPieces() {
     glabel.textAlign = "center";
     glabel.y = -13;
     glabel.x = -1;
-    var green = new createjs.Container();
+    green = new createjs.Container();
     green.x = 227;
     green.y = 453;
     green.addChild(gcircle, glabel);
@@ -229,7 +271,7 @@ function drawPieces() {
     var pllabel = new createjs.Text("Pl", "bold 24px Serif", "#2B0026");
     pllabel.textAlign = "center";
     pllabel.y = -13;
-    var plum = new createjs.Container();
+    plum = new createjs.Container();
     plum.x = 227;
     plum.y = 373;
     plum.addChild(plcircle, pllabel);
@@ -266,6 +308,7 @@ function selectPiece(piece,name,room) {
         player.piece.y = rooms[player.currentRoom]['center'][1];
         pieceSelected = true;
         stage.update();
+        ws.send('{"player": "'+player.cname+'","room": "'+player.currentRoom+'"}');
         dragDrop(); //once piece is created, call the dragDrop function to handle drags & drops
     }
 }
@@ -296,6 +339,7 @@ function dragDrop() {
                 player.piece.x = position[0];
                 player.piece.y = position[1];
                 player.currentRoom = rooms[player.currentRoom]['targets'][hit]; //update the currentRoom variable with the current room
+				ws.send('{"player": "'+player.cname+'","room": "'+player.currentRoom+'"}');
             }
             else { //if no target was found send the piece back to the starting location, alert the player
                 var position = refinePosition(player.cname,player.currentRoom);
