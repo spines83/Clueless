@@ -89,6 +89,7 @@ div {
 	position:relative;
 	top:-57px;
 	left:220px;
+	white-space:nowrap;
 }
 .menu-td {
 	width:230px;
