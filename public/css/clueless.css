@@ -1,6 +1,24 @@
 body {
     background-color:#FFFFFF;
 }
+h1 {
+	font-family:"Bonbon","Comic Sans MS",Helvetica;
+	font-size:1.75em;
+	font-weight:bold;
+}
+h2 {
+	font-family:"Bonbon","Comic Sans MS",Helvetica;
+	font-size:1.5em;
+	font-weight:bold;
+}
+table {
+	margin: 0 auto;
+	text-align:left;
+	font-family:"Muli",Helvetica,Arial;
+}
+td {
+	width:130px;
+}
 div {
     background-color: rgba(0, 0, 0, 0.0);
     text-align:center;
@@ -13,10 +31,69 @@ div {
 }
 .board {
     z-index:0;
+    top:60px;
 }
 .player {
     z-index:1;
+    top:60px;
 }
 .messages {
-	top:605px;
+	z-index:1;
+	top:665px;
+	height:135px;
+	left:325px;
+	width:1115px;
+	background-color:#FFD073;
+	border:5px solid #000000;
 }
+.notes {
+	z-index:1;
+	position:relative;
+	top:53px;
+	left:570px;
+	width:300px;
+	height:589px;
+	line-height: 25px;
+	text-align:center;
+	vertical-align:top;
+	background-color:#FFD073;
+	border:5px solid #000000;
+}
+.gameplay {
+}
+
+.kwicks {
+	height: 50px;
+}
+.kwicks > li {
+	height: 50px;
+	line-height: 60px;
+	text-align:left;
+	vertical-align:middle;
+	font-family:"Muli",Helvetica;
+	font-size:2.5em;
+	font-weight:bold;
+	color:#856319;
+}
+
+#panel-1 { background-color: #FFAA00; }
+#panel-2 { background-color: #FFBF40; }
+#panel-3 { background-color: #BDBDC5; font-family:"Bonbon","Comic Sans MS",Helvetica; text-align:right; color:#000000;}
+
+.menu-items {
+	line-height: 18px;
+	text-align:left;
+	vertical-align:top;
+	font-size:0.5em;
+	font-weight:normal;
+	position:relative;
+	top:-57px;
+	left:220px;
+}
+.menu-td {
+	width:230px;
+}
+a.menu-link:link {color:#000000; text-decoration:none;}
+a.menu-link:visited {color:#000000; text-decoration:none;}
+a.menu-link:hover {color:#856319; text-decoration:none;}
+a.menu-link:active {color:#FFFFFF; text-decoration:none;}

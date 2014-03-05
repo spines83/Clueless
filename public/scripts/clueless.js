@@ -393,3 +393,12 @@ function refinePosition(cname,room) {
         return position;
     }
 } //end refinePosition
+
+// menu script using kwicks jquery library
+$().ready(function() {
+	$('.kwicks').kwicks({
+		//maxSize: '50%',
+		minSize: 200,
+		behavior: 'menu'
+	});
+});
