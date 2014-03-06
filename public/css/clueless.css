@@ -34,7 +34,7 @@ div {
     top:60px;
 }
 .player {
-    z-index:1;
+    z-index:2;
     top:60px;
 }
 .messages {
@@ -60,6 +60,19 @@ div {
 	border:5px solid #000000;
 }
 .gameplay {
+	z-index:1;
+	top:60px;
+	height:740px;
+	left:-1140px;
+	width:300px;
+	background-color:#FFD073;
+	border:5px solid #000000;
+}
+.logo {
+	z-index:1;
+	top:550px;
+	height:740px;
+	left:-1140px;
 }
 
 .kwicks {

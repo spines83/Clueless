@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="640"
+   height="480"
+   id="svg3085"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="flame-torch.svg">
+  <metadata
+     id="metadata3129">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Flame (Torch)</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1600"
+     inkscape:window-height="841"
+     id="namedview3127"
+     showgrid="false"
+     inkscape:zoom="1.3375"
+     inkscape:cx="277.00935"
+     inkscape:cy="232.72897"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3085" />
+  <title
+     id="title3087">Flame (Torch)</title>
+  <defs
+     id="defs3089">
+    <linearGradient
+       id="svg_199"
+       x2="463.12752"
+       y2="249.19782"
+       x1="462.27374"
+       y1="105.75274"
+       gradientTransform="scale(0.71339967,1.4017388)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#ff7f00"
+         stop-opacity="0.996094"
+         offset="0.007813"
+         id="stop3092" />
+      <stop
+         offset="0.550781"
+         stop-opacity="0.996094"
+         stop-color="#bf0000"
+         id="stop3094" />
+      <stop
+         stop-color="#000000"
+         stop-opacity="0.992188"
+         offset="1"
+         id="stop3096" />
+    </linearGradient>
+    <linearGradient
+       id="svg_200"
+       x2="575.47769"
+       y2="251.65249"
+       x1="574.89994"
+       y1="154.58339"
+       gradientTransform="scale(0.62514366,1.5996323)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#ff7f00"
+         stop-opacity="0.996094"
+         offset="0.007813"
+         id="stop3099" />
+      <stop
+         offset="0.550781"
+         stop-opacity="0.996094"
+         stop-color="#bf0000"
+         id="stop3101" />
+      <stop
+         stop-color="#000000"
+         stop-opacity="0.992188"
+         offset="1"
+         id="stop3103" />
+    </linearGradient>
+    <linearGradient
+       id="svg_201"
+       x2="418.99457"
+       y2="242.08601"
+       x1="418.08282"
+       y1="88.901972"
+       gradientTransform="scale(0.63545258,1.5736815)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#ff7f00"
+         stop-opacity="0.996094"
+         offset="0.007813"
+         id="stop3106" />
+      <stop
+         offset="0.550781"
+         stop-opacity="0.996094"
+         stop-color="#bf0000"
+         id="stop3108" />
+      <stop
+         stop-color="#000000"
+         stop-opacity="0.992188"
+         offset="1"
+         id="stop3110" />
+    </linearGradient>
+    <linearGradient
+       id="svg_203"
+       x2="0.003906"
+       y2="0.988281"
+       x1="0.832031"
+       y1="0.136719">
+      <stop
+         stop-color="#ffc300"
+         offset="0.015625"
+         id="stop3113" />
+      <stop
+         offset="0.546875"
+         stop-color="#bf0000"
+         id="stop3115" />
+      <stop
+         stop-color="#020202"
+         stop-opacity="0.992188"
+         offset="1"
+         id="stop3117" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#svg_203"
+       id="linearGradient3154"
+       x1="0.83203101"
+       y1="0.136719"
+       x2="0.0039059999"
+       y2="0.98828101"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#svg_203"
+       id="linearGradient3156"
+       x1="497.4101"
+       y1="51.517832"
+       x2="304.10643"
+       y2="250.29224"
+       gradientTransform="scale(0.63545258,1.5736815)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#svg_203"
+       id="linearGradient3158"
+       x1="625.16775"
+       y1="130.89395"
+       x2="502.67579"
+       y2="256.85259"
+       gradientTransform="scale(0.62514366,1.5996323)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#svg_203"
+       id="linearGradient3160"
+       x1="536.55764"
+       y1="70.745359"
+       x2="355.5436"
+       y2="256.88233"
+       gradientTransform="scale(0.71339967,1.4017388)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     id="g3119"
+     transform="translate(42.616822,2.9906542)">
+    <title
+       id="title3121">Layer 1</title>
+    <text
+       xml:space="preserve"
+       font-size="24"
+       id="svg_12"
+       y="231"
+       x="71"
+       stroke-linejoin="null"
+       style="font-size:24px;text-anchor:middle;opacity:0.5;fill:url(#linearGradient3154);stroke:#096388;stroke-width:0;stroke-linecap:square;stroke-dasharray:none;font-family:Arial" />
+    <path
+       id="svg_24"
+       d="m 284,39.5 c 32.56665,40.133339 -16.16666,101 -76,203.5 -59.83334,102.5 74.00003,154.16681 84.66669,155.16681 C 303.33337,399.16681 240.66667,359 260.5,298 280.33331,237 328.03332,202.4666 340,155.89995 351.96667,109.3333 251.43335,-0.63333 284,39.5 z"
+       transform="matrix(0.99129104,0.13168928,-0.13168928,0.99129104,30.573549,-33.270492)"
+       style="fill:url(#linearGradient3156);stroke:url(#svg_201);stroke-width:0;stroke-linecap:square;stroke-linejoin:round"
+       inkscape:connector-curvature="0" />
+    <path
+       transform="matrix(0.96697214,0.25488211,-0.25488211,0.96697214,87.170245,-82.033104)"
+       id="svg_25"
+       d="m 392.0954,182.19138 c 2.87219,7.7917 3.70282,21.74581 -0.71784,37.86236 -4.42047,16.11653 -10.08282,27.95549 -22.20135,47.15689 -12.11844,19.20136 -22.72455,31.56302 -47.41357,72.59101 -24.68903,41.02801 17.19689,85.84503 9.88732,70.89886 -7.30954,-14.9461 5.31031,-42.29733 17.49979,-60.39664 12.18939,-18.09927 20.23819,-26.3591 32.12259,-43.83804 11.88446,-17.47894 23.74206,-45.37256 24.61218,-61.1868 0.87018,-15.81422 0.95569,-20.86363 -3.64349,-38.23103 -4.59931,-17.36737 -15.89014,-40.44006 -10.14563,-24.85661 z"
+       stroke-linejoin="null"
+       style="fill:url(#linearGradient3158);stroke:url(#svg_200);stroke-width:0;stroke-linecap:square"
+       inkscape:connector-curvature="0" />
+    <path
+       id="svg_26"
+       d="m 260.09622,360.98041 c -8.86255,14.03577 -11.39137,-29.55136 4.38193,-67.28299 15.77325,-37.73163 65.56357,-70.9193 86.97189,-106.61249 21.40842,-35.69321 34.92798,-89.670303 17.76422,-118.385292 -17.16372,-28.714989 3.03073,3.304955 17.49842,23.851715 14.4678,20.546757 22.6102,35.645887 22.24838,69.244717 -0.36173,33.59884 -10.18225,72.9925 -75.02017,124.50633 -64.83798,51.51391 -64.98218,60.64221 -73.84467,74.67801 z"
+       stroke-linejoin="null"
+       transform="matrix(0.99919947,-0.04000519,0.04000519,0.99919947,-8.1550916,13.410372)"
+       style="fill:url(#linearGradient3160);stroke:url(#svg_199);stroke-width:0;stroke-linecap:square;stroke-dasharray:none"
+       inkscape:connector-curvature="0" />
+    <path
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:0;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       d="m 231.15186,38.870911 c -4.80749,5.890573 -17.54564,-10.42467 -13.45794,20.372456 l 0,0.06806 -10.49351,29.026267 -15.08027,29.264476 -0.0315,0.034 -80.79419,108.2445 -19.638135,28.51584 -0.06315,0.0681 0,0.0681 -9.092899,28.48181 -0.03157,0.10207 0.03157,0.10207 -3.00207,32.46123 26.430884,8.90386 C 87.224799,308.0102 101.99362,291.58063 98.46386,278.80071 81.747883,257.07064 89.488328,264.45761 92.477197,255.04307 l 12.741813,-3.02455 6.8647,-25.45713 0.0315,-0.034 80.79424,-108.24455 0.0315,-0.034 0,-0.034 15.14342,-29.29849 0.0315,-0.06806 10.46729,-3.058714 C 213.26777,71.185769 218.37735,50.149223 233.6258,69.949024 221.18958,64.780711 221.18041,57.352933 230.66664,48.198721 l -17.19626,9.617544 -26.91589,-21.188176 22.16725,-14.953271 z"
+       id="path3135"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccccccc" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:64px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:0.42009133;stroke:none;font-family:Keep Calm;-inkscape-font-specification:Keep Calm Medium"
+     id="text3131"
+     sodipodi:linespacing="125%"
+     transform="matrix(-0.99856397,-0.05357229,0.05357229,-0.99856397,484.34703,379.0613)"><textPath
+       xlink:href="#path3135"
+       id="textPath3166"
+       style="font-size:48px;fill:#000000;fill-opacity:0.42009133">Columbia</textPath></text>
+  <text
+     xml:space="preserve"
+     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:0.73972599;stroke:none;font-family:Sans"
+     x="246.72897"
+     y="450.84113"
+     id="text3169"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3171"
+       x="246.72897"
+       y="450.84113"
+       style="font-size:56px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:0.73972599;font-family:London Tube;-inkscape-font-specification:London Tube">GAMES</tspan></text>
+</svg>
