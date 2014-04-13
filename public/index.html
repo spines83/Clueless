@@ -1,9 +1,127 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+	<!-- fonts from Google -->
+	<link href='http://fonts.googleapis.com/css?family=Bonbon' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+	<!-- horizontal menu css -->
+    <link rel='stylesheet' type='text/css' href='css/jquery.kwicks.min-2.2.1.css' />
+    <!-- game css -->
+    <link rel="stylesheet" href="css/clueless.css">
+
+    <!-- include the EaselJS framework for html canvas manipulation, version 0.5.0 -->
+    <script src="http://code.createjs.com/easeljs-0.5.0.min.js" type='text/javascript'></script>
+    <script src="scripts/lib/jquery-2.1.0.js" type='text/javascript'></script>
+    <!-- kwicks menu library -->
+    <script src='scripts/lib/jquery.kwicks.min-2.2.1.js' type='text/javascript'></script>
+    <script src="scripts/clueless.js" type='text/javascript'></script>
+    
 </head>
-<body>
-    Hello World HTML!
+<body onload="drawPieces();">
+	<!-- menu based on kwicks jquery library -->
+	<div id='fluid-example-container'>
+		<ul class='kwicks kwicks-horizontal'>
+			<!-- contents of menu area 1 -->
+			<li id='panel-1'>Game<div id='subpanel-1' class='menu-items'>
+				<table>
+					<tr>
+						<td class='menu-td'><a href='#' class='menu-link'>Create New Game</a></td>
+						<td class='menu-td'><a href='#' class='menu-link'>Return to Current Game</a></td>
+					</tr>
+					<tr>
+						<td><a href='#' class='menu-link'>Return to Lobby</a></td>
+						<td><a href='#' class='menu-link'>Quit Current Game</a></td>
+					</tr>
+				</table></div></li>
+			<!-- contents of menu area 2 -->
+			<li id='panel-2'>Help<div id='subpanel-2' class='menu-items'>
+				<table>
+					<tr>
+						<td class='menu-td'><a href='#' class='menu-link'>About Clue-less</a></td>
+						<td class='menu-td'><a href='#' class='menu-link'>About Columbia Games</a></td>
+					</tr>
+					<tr>
+						<td><a href='#' class='menu-link'>Help</a></td>
+						<td></td>
+					</tr>
+				</table></div></li>
+			<!-- contents of menu area 3 -->
+			<li id='panel-3' class='kwicks-selected'>Clue-less</li>
+		</ul>
+	</div>
+	<!-- end menu -->
+
+    <!-- div for clue-less board -->
+   <div class="board">
+		<img src="assets/board.svg"/>
+		
+	</div>
+	<!-- div for piece interaction using html5 canvas an easelJS -->
+	<div class="player">
+		<canvas id="playerCanvas" width="800" height="600" />
+	</div>
+	<!-- div for gameplay area -->
+	<div class="gameplay" id="gameplay"></div>
+	<div class="logo" id="logo"><img src="assets/ColumbiaGames.svg" height="250px"/></div>
+	<!-- div for player messages -->
+	<div class="messages" id="messages"></div>
+	<!-- div for detective notes -->
+	<div class="notes" id="notes">
+		<h1>Detective Notes</h1>
+		<hr/>
+		<h2>Rooms</h2>
+		<table>
+			<tr>
+				<td><input type="checkbox" id='Study'>Study</input></td>
+				<td><input type="checkbox" id='Hall'>Hall</input></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" id='Lounge'>Lounge</input></td>
+				<td><input type="checkbox" id='Library'>Library</input></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" id='Billiard Room'>Billiard Room</input></td>
+				<td><input type="checkbox" id='Dining Room'>Dining Room</input></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" id='Conservatory'>Conservatory</input></td>
+				<td><input type="checkbox" id='Bakk Room'>Ball Room</input></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="checkbox" id='Kitchen'>Kitchen</input></td>
+			</tr>
+		</table>
+		<h2>Weapons</h2>
+		<table>
+			<tr>
+				<td><input type="checkbox" id='Candlestick'>Candlestick</input></td>
+				<td><input type="checkbox" id='Knife'>Knife</input></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" id='Lead Pipe'>Lead Pipe</input></td>
+				<td><input type="checkbox" id='Revolver'>Revolver</input></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" id='Rope'>Rope</input></td>
+				<td><input type="checkbox" id='Wrench'>Wrench</input></td>
+			</tr>
+		</table>
+		<h2>Suspects</h2>
+		<table>
+			<tr>
+				<td><input type="checkbox" id='Mr. Green'>Mr. Green</input></td>
+				<td><input type="checkbox" id='Col. Mustard'>Col. Mustard</input></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" id='Mrs. Peacock'>Mrs. Peacock</input></td>
+				<td><input type="checkbox" id='Prof. Plum'>Prof. Plum</input></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" id='Ms. Scarlet'>Ms. Scarlet</input></td>
+				<td><input type="checkbox" id='Mrs. White'>Mrs. White</input></td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>
