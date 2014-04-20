@@ -9,15 +9,16 @@
     <!-- game css -->
     <link rel="stylesheet" href="css/clueless.css">
 
+
     <!-- include the EaselJS framework for html canvas manipulation, version 0.5.0 -->
     <script src="http://code.createjs.com/easeljs-0.5.0.min.js" type='text/javascript'></script>
     <script src="scripts/lib/jquery-2.1.0.js" type='text/javascript'></script>
     <!-- kwicks menu library -->
-    <script src='scripts/lib/jquery.kwicks.min-2.2.1.js' type='text/javascript'></script>
-    <script src="scripts/clueless.js" type='text/javascript'></script>
-    
+    <script data-main="scripts/main" src="scripts/require.js"></script>
+
+
 </head>
-<body onload="drawPieces();">
+<body>
 	<!-- menu based on kwicks jquery library -->
 	<div id='fluid-example-container'>
 		<ul class='kwicks kwicks-horizontal'>
@@ -123,5 +124,16 @@
 			</tr>
 		</table>
 	</div>
+    <script src='scripts/lib/jquery.kwicks.min-2.2.1.js' type='text/javascript'></script>
+    <script type="text/javascript">
+        // menu script using kwicks jquery library
+        $(document).ready(function() {
+            $('.kwicks').kwicks({
+                //maxSize: '50%',
+                minSize: 200,
+                behavior: 'menu'
+            });
+        });
+    </script>
 </body>
 </html>
