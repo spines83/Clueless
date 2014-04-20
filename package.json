@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "dependencies": {
         "express": "latest",
-        "ws": "latest"
+        "ws": "latest",
+        "node-uuid": "latest"
     }
 }
