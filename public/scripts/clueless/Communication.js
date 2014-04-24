@@ -3,31 +3,40 @@ define([
 ], function($){
 
     var ws,
-        callbacks = [],
+        subscribers = {},
         sessionId;
 
     var exposed = {
         init: function(host, port){
             ws = new WebSocket('ws://' + host + ':' + port);
             ws.onmessage = function(message){
-                if (!sessionId){
-                    sessionId = message.data;
-                    console.log(sessionId);
-                    return;
-                }
+
+                var data = JSON.parse(message.data);
+
+                var channel = data.channel;
+
+                var callbacks = subscribers[channel] || [];
+
                 callbacks.forEach(function(callback){
-                    callback(message);
+                    callback(data.message);
                 });
             }
         },
         getSessionId: function(){
             return sessionId;
         },
-        addMessageHandler: function(callback){
-            callbacks.push(callback);
+        onMessageFromServer: function(channel, callback){
+            if (!subscribers[channel]){
+                subscribers[channel] = [];
+            }
+            subscribers[channel].push(callback);
         },
-        sendMessage: function(message){
-            ws.send(message);
+        sendMessageToServer: function(channel, message){
+            ws.send(JSON.stringify({
+                sessionId: sessionId,
+                channel: channel,
+                message: message
+            }));
         }
     }
 

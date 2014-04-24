@@ -4,41 +4,50 @@ var wss = new WebSocketServer({port: 4000});
 var uuid = require('node-uuid');
 
 var idToSocket = {};
+var subscribers = {}
+
+wss.broadcast = function(data){
+    for (var i in this.clients){
+        this.clients[i].send(data);
+    }
+};
 
 // When the web socket server is online
 wss.on('connection', function(ws){
 
     // implement a session identifier
-    var id = uuid.v4();
-
-    idToSocket[id] = ws;
-    exports.sendMessageToUser(id, id);
+//    var id = uuid.v4();
+//
+//    idToSocket[id] = ws;
+//    exports.sendMessageToUser(id, id);
 
     // When the web socket server receives a message
     ws.on('message', function(message){
 
-        // Log to the console
-        console.log('received: %s', message);
-
-        // And rebroadcast to anyone listening
-        wss.broadcast(message);
+        message = JSON.parse(message);
+        console.log(message);
+//        // Look for subscribers on on that channel and publish out to them
+//        console.log(subscribers);
+        var callbacks = subscribers[message.channel] || [];
+        callbacks.forEach(function(callback){
+            callback(message.message);
+        });
     });
 });
 
-
-exports.broadcast = function(message){
-// Broadcast function taken from the wss documentation
-    wss.broadcast = function(data){
-        for (var i in this.clients){
-            this.clients[i].send(data);
-        }
-    };
-}
-
-exports.sendMessageToUser = function(id, message){
-    if (!idToSocket[id]){
-        return "Invalid ID";
+exports.onMessageFromClient = function(channel, callback){
+    if (!subscribers[channel]){
+        subscribers[channel] = [];
     }
 
-    idToSocket[id].send(message);
+    subscribers[channel].push(callback);
+}
+
+exports.sendMessageToClient = function(channel, message){
+    console.log('publish to ' + channel);
+    console.log(message);
+    wss.broadcast(JSON.stringify({
+        channel: channel,
+        message: message
+    }));
 }

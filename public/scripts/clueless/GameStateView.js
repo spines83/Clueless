@@ -24,8 +24,7 @@ define([
 
 // Handler for messages coming from the server
 // sets the new room location of a piece
-    Communication.addMessageHandler(function(event){
-        var obj = $.parseJSON(event.data);
+    Communication.onMessageFromServer('player.move', function(obj){
         var position = refinePosition(obj.player,obj.room); //get the x, y coordinates to move the piece
         switch(obj.player) { //based on the suspect name, move the piece
             case 'green':
@@ -317,7 +316,10 @@ define([
             player.piece.y = rooms[player.currentRoom]['center'][1];
             pieceSelected = true;
             stage.update();
-            Communication.sendMessage('{"player": "'+player.cname+'","room": "'+player.currentRoom+'"}');
+            Communication.sendMessageToServer('player.move', {
+                player: player.cname,
+                room: player.currentRoom
+            });
             dragDrop(); //once piece is created, call the dragDrop function to handle drags & drops
         }
     }
@@ -348,7 +350,10 @@ define([
                     player.piece.x = position[0];
                     player.piece.y = position[1];
                     player.currentRoom = rooms[player.currentRoom]['targets'][hit]; //update the currentRoom variable with the current room
-                    Communication.sendMessage('{"player": "'+player.cname+'","room": "'+player.currentRoom+'"}');
+                    Communication.sendMessageToServer('player.move', {
+                        player: player.cname,
+                        room: player.currentRoom
+                    });
                 }
                 else { //if no target was found send the piece back to the starting location, alert the player
                     var position = refinePosition(player.cname,player.currentRoom);
