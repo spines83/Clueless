@@ -38,6 +38,7 @@ div {
     top:60px;
 }
 .messages {
+    text-align:'left';
 	z-index:1;
 	top:665px;
 	height:135px;
