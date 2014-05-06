@@ -61,7 +61,37 @@
 		<canvas id="playerCanvas" width="800" height="600" />
 	</div>
 	<!-- div for gameplay area -->
-	<div class="gameplay" id="gameplay"></div>
+	<div class="gameplay" id="gameplay">
+	<select id="suspect">
+		<option value='green'>Mr. Green</option>
+		<option value='mustard'>Col. Mustard</option>
+		<option value='peacock'>Mrs. Peacock</option>
+		<option value='plum'>Prof. Plum</option>
+		<option value='scarlet'>Ms. Scarlet</option>
+		<option value='white'>Mrs. White</option>
+	</select>
+	<select id="room">
+		<option value='study'>Study</option>
+		<option value='hall'>Hall</option>
+		<option value='lounge'>Lounge</option>
+		<option value='library'>Library</option>
+		<option value='billiardRoom'>Billiard Room</option>
+		<option value='diningRoom'>Dining Room</option>
+		<option value='conservatory'>Conservatory</option>
+		<option value='ballRoom'>Ball Room</option>
+		<option value='kitchen'>Kitchen</option>
+	</select>
+	<select id="weapon">
+		<option value='candlestick'>Candlestick</option>
+		<option value='knife'>Knife</option>
+		<option value='leadpipe'>Lead Pipe</option>
+		<option value='revolver'>Revolver</option>
+		<option value='rope'>Rope</option>
+		<option value='wrench'>Wrench</option>
+	</select>
+	<input type="submit" value="Make Suggestion" id='suggestionButton'/>
+	
+	</div>
 	<div class="logo" id="logo"><img src="assets/ColumbiaGames.svg" height="250px"/></div>
 	<!-- div for player messages -->
 	<div class="messages" id="messages"></div>
@@ -72,54 +102,54 @@
 		<h2>Rooms</h2>
 		<table>
 			<tr>
-				<td><input type="checkbox" id='Study'>Study</input></td>
-				<td><input type="checkbox" id='Hall'>Hall</input></td>
+				<td><input type="checkbox" id='study'>Study</input></td>
+				<td><input type="checkbox" id='hall'>Hall</input></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" id='Lounge'>Lounge</input></td>
-				<td><input type="checkbox" id='Library'>Library</input></td>
+				<td><input type="checkbox" id='lounge'>Lounge</input></td>
+				<td><input type="checkbox" id='library'>Library</input></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" id='Billiard Room'>Billiard Room</input></td>
-				<td><input type="checkbox" id='Dining Room'>Dining Room</input></td>
+				<td><input type="checkbox" id='billiardroom'>Billiard Room</input></td>
+				<td><input type="checkbox" id='diningroom'>Dining Room</input></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" id='Conservatory'>Conservatory</input></td>
-				<td><input type="checkbox" id='Bakk Room'>Ball Room</input></td>
+				<td><input type="checkbox" id='conservatory'>Conservatory</input></td>
+				<td><input type="checkbox" id='ballroom'>Ball Room</input></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="checkbox" id='Kitchen'>Kitchen</input></td>
+				<td><input type="checkbox" id='kitchen'>Kitchen</input></td>
 			</tr>
 		</table>
 		<h2>Weapons</h2>
 		<table>
 			<tr>
-				<td><input type="checkbox" id='Candlestick'>Candlestick</input></td>
-				<td><input type="checkbox" id='Knife'>Knife</input></td>
+				<td><input type="checkbox" id='candlestick'>Candlestick</input></td>
+				<td><input type="checkbox" id='knife'>Knife</input></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" id='Lead Pipe'>Lead Pipe</input></td>
-				<td><input type="checkbox" id='Revolver'>Revolver</input></td>
+				<td><input type="checkbox" id='leadpipe'>Lead Pipe</input></td>
+				<td><input type="checkbox" id='revolver'>Revolver</input></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" id='Rope'>Rope</input></td>
-				<td><input type="checkbox" id='Wrench'>Wrench</input></td>
+				<td><input type="checkbox" id='rope'>Rope</input></td>
+				<td><input type="checkbox" id='wrench'>Wrench</input></td>
 			</tr>
 		</table>
 		<h2>Suspects</h2>
 		<table>
 			<tr>
-				<td><input type="checkbox" id='Mr. Green'>Mr. Green</input></td>
-				<td><input type="checkbox" id='Col. Mustard'>Col. Mustard</input></td>
+				<td><input type="checkbox" id='green'>Mr. Green</input></td>
+				<td><input type="checkbox" id='mustard'>Col. Mustard</input></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" id='Mrs. Peacock'>Mrs. Peacock</input></td>
-				<td><input type="checkbox" id='Prof. Plum'>Prof. Plum</input></td>
+				<td><input type="checkbox" id='peacock'>Mrs. Peacock</input></td>
+				<td><input type="checkbox" id='plum'>Prof. Plum</input></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" id='Ms. Scarlet'>Ms. Scarlet</input></td>
-				<td><input type="checkbox" id='Mrs. White'>Mrs. White</input></td>
+				<td><input type="checkbox" id='scarlet'>Ms. Scarlet</input></td>
+				<td><input type="checkbox" id='white'>Mrs. White</input></td>
 			</tr>
 		</table>
 	</div>

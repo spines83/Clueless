@@ -54,6 +54,9 @@ define([
                 break;
         }
         stage.update();
+        if (obj.player == player.cname) {
+			player.currentRoom = obj.room;
+		}
     });
 
 	// Player object, holds reference to the board piece object and the character name
@@ -266,6 +269,19 @@ define([
         }
     } //end refinePosition
 
+	$("#suggestionButton").on('click', makeSuggestion);
+	
+	function makeSuggestion() {
+		Communication.sendMessageToServer('player.suggestion', {
+			player: $("#suspect").val(),
+            room: $("#room").val(),
+            weapon: $("#weapon").val()
+            });
+        Communication.sendMessageToServer('player.move', {
+			player: $("#suspect").val(),
+            room: $("#room").val()
+            });
+	}
 
     return exports;
 });
