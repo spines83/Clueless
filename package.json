@@ -4,6 +4,7 @@
     "dependencies": {
         "express": "latest",
         "ws": "latest",
-        "node-uuid": "latest"
+        "node-uuid": "latest",
+        "underscore": "latest"
     }
 }

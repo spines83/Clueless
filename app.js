@@ -3,8 +3,10 @@ var app = express();
 
 var Communication = require('./server/Communication');
 var GameState = require('./server/GameState');
+var Lobby = require('./server/Lobby');
 
-GameState.initMessaging();
+GameState.init();
+Lobby.init();
 
 // Basic web-server for static content in the public folder.
 // http://localhost:3000/<filename> will look for the file in

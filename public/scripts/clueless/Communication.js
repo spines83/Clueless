@@ -4,7 +4,7 @@ define([
 
     var ws,
         subscribers = {},
-        sessionId;
+        sessionId = Math.floor(Math.random() * (100000000)); // Normally would use a UUID
 
     var exposed = {
         init: function(host, port){
@@ -21,6 +21,11 @@ define([
                     callback(data.message);
                 });
             }
+
+            waitForSocketConnection(ws, function(){
+                exposed.sendMessageToServer('__register__', "");
+            });
+
         },
         getSessionId: function(){
             return sessionId;
@@ -38,6 +43,24 @@ define([
                 message: message
             }));
         }
+    }
+
+    function waitForSocketConnection(socket, callback){
+        setTimeout(
+            function () {
+                if (socket.readyState === 1) {
+                    console.log("Connection is made")
+                    if(callback != null){
+                        callback();
+                    }
+                    return;
+
+                } else {
+                    console.log("wait for connection...")
+                    waitForSocketConnection(socket, callback);
+                }
+
+            }, 5); // wait 5 milisecond for the connection...
     }
 
     return exposed;
