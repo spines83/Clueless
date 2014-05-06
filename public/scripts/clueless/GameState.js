@@ -3,8 +3,8 @@ define([
 ], function($){
 
 	var exports = {
-        Clueless: function(){
-            Clueless();
+        newGameInstance: function(){
+            return new Clueless();
         }
     }
 

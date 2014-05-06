@@ -8,7 +8,7 @@ define([
     var width = 800;   	//width of the board game in pixels
     var height = 600;  	//height of the board game in pixels
     var player = {}; 	//Player object, holds reference to player's piece object and player's character name
-    //var gameState = new Clueless(); //gameState object
+    var gameState = GameState.newGameInstance(); //gameState object
     var pieceSelected = false; //set to true once player select's their piece
 
     var exports = {

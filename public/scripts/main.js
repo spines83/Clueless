@@ -10,8 +10,7 @@ require([
     'clueless/GameStateView',
     'clueless/Communication',
     'clueless/GameState'
-], function($, GameStateView, Communication, GameState){
+], function($, GameStateView, Communication){
     Communication.init('localhost', 4000);
     GameStateView.drawPieces();
-    var gameState = new GameState.Clueless();
 });
