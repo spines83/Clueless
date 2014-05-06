@@ -269,19 +269,32 @@ define([
         }
     } //end refinePosition
 
+	//Make a suggestion
 	$("#suggestionButton").on('click', makeSuggestion);
-	
 	function makeSuggestion() {
-		Communication.sendMessageToServer('player.suggestion', {
+		var validRooms = new Array('study','hall','lounge','library','billiardRoom','diningRoom','conservatory','ballRoom','kitchen');
+		if (validRooms.indexOf(player.currentRoom) != -1) {
+			Communication.sendMessageToServer('player.suggestion', {
+				player: $("#suspect").val(),
+				room: player.currentRoom,
+				weapon: $("#weapon").val()
+				});
+			Communication.sendMessageToServer('player.move', {
+				player: $("#suspect").val(),
+				room: player.currentRoom
+				});
+			}
+		else { alert('Sorry, you have to be in a room to make a suggestion.');}
+	}
+	
+	//Make an accusation
+	$("#accusationButton").on('click', makeAccusation);
+	function makeAccusation() {
+		Communication.sendMessageToServer('player.accusation', {
 			player: $("#suspect").val(),
             room: $("#room").val(),
             weapon: $("#weapon").val()
             });
-        Communication.sendMessageToServer('player.move', {
-			player: $("#suspect").val(),
-            room: $("#room").val()
-            });
 	}
-
     return exports;
 });
