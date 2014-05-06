@@ -76,6 +76,12 @@ div {
 	left:-1140px;
 }
 
+#messagePanel {
+    margin-top: 7px;
+    background-color: #FFD073;
+    border: none;
+}
+
 .kwicks {
 	height: 50px;
 }

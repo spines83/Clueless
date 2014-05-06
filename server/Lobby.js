@@ -12,7 +12,7 @@ exports.init = function(){
 
         console.log('number of connected users: ' + _.size(sessionIds));
 
-        if (_.size(sessionIds) === 2){
+        if (_.size(sessionIds) === 4){
             console.log("Starting new game!");
             GameState.init(_.keys(sessionIds));
             sessionIds = {};

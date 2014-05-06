@@ -25,6 +25,9 @@ wss.on('connection', function(ws){
         if (message.channel == "__register__"){
             idToSocket[message.sessionId] = this.ws;
             this.ws._uuid = message.sessionId;
+            exports.sendMessageToClient('panel.addMessage', {
+                message: "User#" + message.sessionId + " has joined the game!"
+            });
         }
 
         var callbacks = subscribers[message.channel] || [];

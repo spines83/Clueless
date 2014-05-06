@@ -4,6 +4,10 @@ var playerIds = [];
 
 exports.init = function(playerIdArray){
 
+    Communication.sendMessageToClient('panel.addMessage', {
+        message: "Lobby full, starting a new game!"
+    });
+
     playerIds = playerIdArray;
 
     var deck = require('./Cards').newDeck()
@@ -11,10 +15,20 @@ exports.init = function(playerIdArray){
 
     var card, i = 0;
     while ((card = deck.getCard()) != null){
-        console.log(playerIdArray[i % playerIdArray.length] + " " + card);
+
+        var sessionId = playerIdArray[i % playerIdArray.length];
         i = i + 1;
+
+        // Used by Message Panel
+        Communication.sendMessageToClientBySessionId(sessionId, 'panel.addMessage', {
+            message: "You've been dealt: " + card
+        });
+
+        // Used by Detective Notes Panel
+        Communication.sendMessageToClientBySessionId(sessionId, 'card.add', {
+            card: card
+        });
     }
-    console.log('done!');
 
     Communication.onMessageFromClient('player.move', function(sessionId, message){
         Communication.sendMessageToClient('player.move', message);

@@ -8,8 +8,10 @@ require.config({
 require([
     'jquery',
     'clueless/GameStateView',
-    'clueless/Communication'
-], function($, GameStateView, Communication){
+    'clueless/Communication',
+    'clueless/MessageView'
+], function($, GameStateView, Communication, MessageView){
     Communication.init('localhost', 4000);
+    MessageView.init();
     GameStateView.drawPieces();
 });
