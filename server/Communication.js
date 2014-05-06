@@ -54,3 +54,10 @@ exports.sendMessageToClient = function(channel, message){
         message: message
     }));
 }
+
+exports.sendMessageToClientBySessionId = function(id, channel, message){
+    idToSocket[id].send(JSON.stringify({
+        channel: channel,
+        message: message
+    }));
+}

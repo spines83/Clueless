@@ -1,4 +1,5 @@
 var Communication = require('./Communication.js');
+var GameState = require('./GameState');
 var _ = require('underscore');
 
 var sessionIds = {};
@@ -10,6 +11,12 @@ exports.init = function(){
         sessionIds[sessionId] = {};
 
         console.log('number of connected users: ' + _.size(sessionIds));
+
+        if (_.size(sessionIds) === 2){
+            console.log("Starting new game!");
+            GameState.init(_.keys(sessionIds));
+            sessionIds = {};
+        }
     });
 };
 
