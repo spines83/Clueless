@@ -62,54 +62,56 @@
 	</div>
 	<!-- div for gameplay area -->
 	<div class="gameplay" id="gameplay">
-	<select id="suspect">
-		<option value='green'>Mr. Green</option>
-		<option value='mustard'>Col. Mustard</option>
-		<option value='peacock'>Mrs. Peacock</option>
-		<option value='plum'>Prof. Plum</option>
-		<option value='scarlet'>Ms. Scarlet</option>
-		<option value='white'>Mrs. White</option>
-	</select>
-	<select id="weapon">
-		<option value='candlestick'>Candlestick</option>
-		<option value='knife'>Knife</option>
-		<option value='leadpipe'>Lead Pipe</option>
-		<option value='revolver'>Revolver</option>
-		<option value='rope'>Rope</option>
-		<option value='wrench'>Wrench</option>
-	</select>
-	<input type="submit" value="Make Suggestion" id='suggestionButton'/>
-	<br>
-	<br>
-	<select id="suspect">
-		<option value='green'>Mr. Green</option>
-		<option value='mustard'>Col. Mustard</option>
-		<option value='peacock'>Mrs. Peacock</option>
-		<option value='plum'>Prof. Plum</option>
-		<option value='scarlet'>Ms. Scarlet</option>
-		<option value='white'>Mrs. White</option>
-	</select>
-	<select id="room">
-		<option value='study'>Study</option>
-		<option value='hall'>Hall</option>
-		<option value='lounge'>Lounge</option>
-		<option value='library'>Library</option>
-		<option value='billiardRoom'>Billiard Room</option>
-		<option value='diningRoom'>Dining Room</option>
-		<option value='conservatory'>Conservatory</option>
-		<option value='ballRoom'>Ball Room</option>
-		<option value='kitchen'>Kitchen</option>
-	</select>
-	<select id="weapon">
-		<option value='candlestick'>Candlestick</option>
-		<option value='knife'>Knife</option>
-		<option value='leadpipe'>Lead Pipe</option>
-		<option value='revolver'>Revolver</option>
-		<option value='rope'>Rope</option>
-		<option value='wrench'>Wrench</option>
-	</select>
-	<input type="submit" value="Make Accusation" id='accusationButton'/>
-	
+		<div id="suggestionDiv" style="visibility:visible">
+		<select id="suspect" >
+			<option value='green'>Mr. Green</option>
+			<option value='mustard'>Col. Mustard</option>
+			<option value='peacock'>Mrs. Peacock</option>
+			<option value='plum'>Prof. Plum</option>
+			<option value='scarlet'>Ms. Scarlet</option>
+			<option value='white'>Mrs. White</option>
+		</select><br />
+		<select id="weapon">
+			<option value='candlestick'>Candlestick</option>
+			<option value='knife'>Knife</option>
+			<option value='leadpipe'>Lead Pipe</option>
+			<option value='revolver'>Revolver</option>
+			<option value='rope'>Rope</option>
+			<option value='wrench'>Wrench</option>
+		</select><br />
+		<input type="submit" value="Make Suggestion" id='suggestionButton'/>
+		</div>
+
+		<div id="accusationDiv" style="visibility:hidden">
+		<select id="suspect">
+			<option value='green'>Mr. Green</option>
+			<option value='mustard'>Col. Mustard</option>
+			<option value='peacock'>Mrs. Peacock</option>
+			<option value='plum'>Prof. Plum</option>
+			<option value='scarlet'>Ms. Scarlet</option>
+			<option value='white'>Mrs. White</option>
+		</select><br />
+		<select id="room">
+			<option value='study'>Study</option>
+			<option value='hall'>Hall</option>
+			<option value='lounge'>Lounge</option>
+			<option value='library'>Library</option>
+			<option value='billiardRoom'>Billiard Room</option>
+			<option value='diningRoom'>Dining Room</option>
+			<option value='conservatory'>Conservatory</option>
+			<option value='ballRoom'>Ball Room</option>
+			<option value='kitchen'>Kitchen</option>
+		</select><br />
+		<select id="weapon">
+			<option value='candlestick'>Candlestick</option>
+			<option value='knife'>Knife</option>
+			<option value='leadpipe'>Lead Pipe</option>
+			<option value='revolver'>Revolver</option>
+			<option value='rope'>Rope</option>
+			<option value='wrench'>Wrench</option>
+		</select><br />
+		<input type="submit" value="Make Accusation" id='accusationButton'/>
+		</div>
 	</div>
 	<div class="logo" id="logo"><img src="assets/ColumbiaGames.svg" height="250px"/></div>
 	<!-- div for player messages -->

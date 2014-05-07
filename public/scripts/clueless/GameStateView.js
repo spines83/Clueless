@@ -53,10 +53,10 @@ define([
                 gameState.white.currentRoom = obj.room;
                 break;
         }
-        stage.update();
         if (obj.player == player.cname) {
 			player.currentRoom = obj.room;
 		}
+		stage.update();
     });
 
 	// Player object, holds reference to the board piece object and the character name
@@ -283,9 +283,24 @@ define([
 				player: $("#suspect").val(),
 				room: player.currentRoom
 				});
+			Communication.sendMessageToServer('panel.addMessage', {
+				message: getAccusationMessage($("#suspect").val(), $("#weapon").val())
+				});
 			}
 		else { alert('Sorry, you have to be in a room to make a suggestion.');}
 	}
+	//Generate the message sent to all players when a player makes an accusation
+	function getAccusationMessage(suspect,weapon) {
+		var msg = getFullName(player.cname);
+		msg += " suggests that ";
+		msg += getFullName(suspect);
+		msg += " committed the crime in the ";
+		msg += gameState.getRoomName(player.currentRoom);
+		msg += " with the ";
+		msg += getWeaponName(weapon);
+		msg += ".";
+		return msg;
+	} 
 	
 	//Make an accusation
 	$("#accusationButton").on('click', makeAccusation);
@@ -295,6 +310,74 @@ define([
             room: $("#room").val(),
             weapon: $("#weapon").val()
             });
+        Communication.sendMessageToServer('panel.addMessage', {
+			message: getAccusationMessage($("#suspect").val(),$("#room").val(), $("#weapon").val())
+			});
 	}
+	//Generate the message sent to all players when a player makes an accusation
+	function getAccusationMessage(suspect,room,weapon) {
+		var msg = getFullName(player.cname);
+		msg += " accuses ";
+		msg += getFullName(suspect);
+		msg += " of committing the crime in the ";
+		msg += gameState.getRoomName(room);
+		msg += " with the ";
+		msg += getWeaponName(weapon);
+		msg += ".";
+		return msg;
+	} 
+	
+	//Gets full name of suspect / player pieces
+	function getFullName(cname) {
+		var fullname = "";
+		switch(cname) { //stagger each piece to avoid overlapping
+                case 'green':
+                    fullname = "Mr. Green";
+                    break;
+                case 'mustard':
+                    fullname = "Col. Mustard";
+                    break;
+                case 'peacock':
+                    fullname = "Mrs. Peacock";
+                    break;
+                case 'plum':
+                    fullname = "Prof. Plum";
+                    break;
+                case 'scarlet':
+                    fullname = "Ms. Scarlet";
+                    break;
+                case 'white':
+                    fullname = "Mrs. White";
+                    break;
+            }
+            return fullname;
+	}
+	
+	//Gets full name of weapon
+	function getWeaponName(weapon) {
+		var fullname = "";
+		switch(weapon) { //stagger each piece to avoid overlapping
+                case 'candlestick':
+                    fullname = "candlestick";
+                    break;
+                case 'knife':
+                    fullname = "knife";
+                    break;
+                case 'leadpipe':
+                    fullname = "lead pipe";
+                    break;
+                case 'revolver':
+                    fullname = "revolver";
+                    break;
+                case 'rope':
+                    fullname = "rope";
+                    break;
+                case 'wrench':
+                    fullname = "wrench";
+                    break;
+            }
+            return fullname;
+	}
+	
     return exports;
 });
