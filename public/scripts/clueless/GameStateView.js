@@ -58,6 +58,13 @@ define([
 		}
 		stage.update();
     });
+    
+    // Update detective notes view when dealt cards
+     Communication.onMessageFromServer('card.add', function(obj){
+		 var id = "#"+obj.card;
+		 $(id).prop('checked', true);
+		 $(id).prop('disabled', true);
+	 });
 
 	// Player object, holds reference to the board piece object and the character name
     function Player(piece, cname, room) {
@@ -284,13 +291,13 @@ define([
 				room: player.currentRoom
 				});
 			Communication.sendMessageToServer('panel.addMessage', {
-				message: getAccusationMessage($("#suspect").val(), $("#weapon").val())
+				message: getSuggestionMessage($("#suspect").val(), $("#weapon").val())
 				});
 			}
 		else { alert('Sorry, you have to be in a room to make a suggestion.');}
 	}
-	//Generate the message sent to all players when a player makes an accusation
-	function getAccusationMessage(suspect,weapon) {
+	//Generate the message sent to all players when a player makes a suggestion
+	function getSuggestionMessage(suspect,weapon) {
 		var msg = getFullName(player.cname);
 		msg += " suggests that ";
 		msg += getFullName(suspect);
