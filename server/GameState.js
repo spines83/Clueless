@@ -33,4 +33,7 @@ exports.init = function(playerIdArray){
     Communication.onMessageFromClient('player.move', function(sessionId, message){
         Communication.sendMessageToClient('player.move', message);
     });
+    Communication.onMessageFromClient('panel.addMessage', function(sessionId, message){
+        Communication.sendMessageToClient('panel.addMessage', message);
+    });
 }
