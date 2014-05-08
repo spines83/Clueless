@@ -188,6 +188,9 @@ define([
             player.piece.y = center[1];
             pieceSelected = true;
             stage.update();
+            Communication.sendMessageToServer('piece.select', {
+                piece: player.cname
+            });
             Communication.sendMessageToServer('player.move', {
                 player: player.cname,
                 room: player.currentRoom
