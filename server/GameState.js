@@ -16,6 +16,8 @@ var nameToDisplay = {
     white: "Mrs. White"
 }
 
+var cardsDealt = false;
+var deck;
 var roomToDisplay = {
     study: "the Study",
     studyLibraryHall: "the hallway between the Study and the Library",
@@ -86,7 +88,7 @@ exports.init = function(playerIdArray){
                 pieces: pieces
             });
 
-            var deck = require('./Cards').newDeck()
+            deck = require('./Cards').newDeck()
             deck.init();
 
             var card, i = 0;
@@ -135,6 +137,28 @@ exports.init = function(playerIdArray){
             message: nameToDisplay[message.player] + " has moved to " + roomToDisplay[message.room]
         })
     });
+    //determines whether the game has been won, sends message out to players
+    Communication.onMessageFromClient('player.accusation', function(sessionId, message){
+		//game is won	
+		if ((message.suspect === deck.suspect) && (message.weapon === deck.weapon) && (message.room === deck.room)) {
+			Communication.sendMessageToClient('panel.addMessage', {
+				message: nameToDisplay[message.player]+'won the game. '+nameToDisplay[message.suspect]+' is guilty of the crime.'
+				}, 250);
+			Communication.sendMessageToClientBySessionId(sessionId, 'panel.addMessage', {
+				message: "You've won!"
+			}, 500);
+		}
+		//game is lost (by the accusing player)
+		else {
+			Communication.sendMessageToClient('panel.addMessage', {
+				message: nameToDisplay[message.player]+' unfairly accused '+nameToDisplay[message.suspect]+' of committing the crime and is now out of the game.'
+				}, 250);
+			Communication.sendMessageToClientBySessionId(sessionId, 'panel.addMessage', {
+				message: "You've lost!"
+			}, 500);
+		}
+    });
+    //echo messages back to clients that should be added to the message panel
     Communication.onMessageFromClient('panel.addMessage', function(sessionId, message){
         Communication.sendMessageToClient('panel.addMessage', message);
     });

@@ -49,18 +49,22 @@ exports.onMessageFromClient = function(channel, callback){
     subscribers[channel].push(callback);
 }
 
-exports.sendMessageToClient = function(channel, message){
+exports.sendMessageToClient = function(channel, message, delay){
     console.log('publish to ' + channel);
     console.log(message);
-    wss.broadcast(JSON.stringify({
-        channel: channel,
-        message: message
-    }));
+    setTimeout(function(){
+		wss.broadcast(JSON.stringify({
+			channel: channel,
+			message: message
+		}));
+	}, delay || 0);
 }
 
-exports.sendMessageToClientBySessionId = function(id, channel, message){
-    idToSocket[id].send(JSON.stringify({
-        channel: channel,
-        message: message
-    }));
+exports.sendMessageToClientBySessionId = function(id, channel, message, delay){
+    setTimeout(function(){
+			idToSocket[id].send(JSON.stringify({
+			channel: channel,
+			message: message
+		}));
+	}, delay || 0);
 }

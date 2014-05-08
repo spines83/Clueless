@@ -300,7 +300,8 @@ define([
 		var validRooms = new Array('study','hall','lounge','library','billiardRoom','diningRoom','conservatory','ballRoom','kitchen');
 		if (validRooms.indexOf(player.currentRoom) != -1) {
 			Communication.sendMessageToServer('player.suggestion', {
-				player: $("#suspect").val(),
+				player: player.cname,
+				suspect: $("#suspect").val(),
 				room: player.currentRoom,
 				weapon: $("#weapon").val()
 				});
@@ -330,14 +331,16 @@ define([
 	//Make an accusation
 	$("#accusationButton").on('click', makeAccusation);
 	function makeAccusation() {
-		Communication.sendMessageToServer('player.accusation', {
-			player: $("#suspect").val(),
-            room: $("#room").val(),
-            weapon: $("#weapon").val()
-            });
-        Communication.sendMessageToServer('panel.addMessage', {
+		Communication.sendMessageToServer('panel.addMessage', {
 			message: getAccusationMessage($("#suspect").val(),$("#room").val(), $("#weapon").val())
 			});
+		Communication.sendMessageToServer('player.accusation', {
+			player: player.cname,
+			suspect: $("#suspect").val(),
+            room: $("#room").val(),
+            weapon: $("#weapon").val()
+            },500);
+
 	}
 	//Generate the message sent to all players when a player makes an accusation
 	function getAccusationMessage(suspect,room,weapon) {
