@@ -17,6 +17,10 @@ define([
         }
     }
 
+    Communication.onMessageFromServer('pieces.move.remaining', function(message){
+        moveRemainingPieces(message.pieces);
+    });
+
 	// Handler for piece movement messages coming from the server
 	// sets the new room location of a piece
     Communication.onMessageFromServer('player.move', function(obj){
@@ -178,6 +182,17 @@ define([
         stage.update();
 
     } // end drawPieces();
+
+    function moveRemainingPieces(pieces){
+        // selectPiece(gameState.white,'white',gameState.white.currentRoom
+        pieces.forEach(function(piece){
+            var player = new Player(gameState[piece], piece, gameState[piece].currentRoom);
+            var center = gameState.getCenter(player.currentRoom);
+            player.piece.x = center[0];
+            player.piece.y = center[1];
+            stage.update();
+        })
+    }
 
 	// selectPiece() handles selection of the player's piece
     function selectPiece(piece,name,room) {

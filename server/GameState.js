@@ -66,6 +66,18 @@ exports.init = function(playerIdArray){
                 message: "Let the game begin! Here are your cards."
             });
 
+            // Move remaining pieces
+            var pieces = [];
+            _.each(nameToDisplay, function(value, key){
+                if (!playerToPiece[key]){
+                    pieces.push(key);
+                }
+            });
+
+            Communication.sendMessageToClient('pieces.move.remaining', {
+                pieces: pieces
+            });
+
             var deck = require('./Cards').newDeck()
             deck.init();
 
