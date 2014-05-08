@@ -112,4 +112,7 @@ exports.init = function(playerIdArray){
             message: nameToDisplay[message.player] + " has moved to " + roomToDisplay[message.room]
         })
     });
+    Communication.onMessageFromClient('panel.addMessage', function(sessionId, message){
+        Communication.sendMessageToClient('panel.addMessage', message);
+    });
 }
