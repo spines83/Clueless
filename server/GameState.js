@@ -2,9 +2,10 @@ var Communication = require('./Communication.js');
 var _ = require('underscore');
 
 var playerIds = [];
+
 var moveNo = 0;
 var cardsDealt = false;
-var playerToPiece = {};
+var playerIdToInfo = {};
 
 var nameToDisplay = {
     green: "Mr. Green",
@@ -43,6 +44,9 @@ var roomToDisplay = {
     kitchenSecretPassage: "a secret passage in the Kitchen"
 }
 
+exports.getCardsBySessionId = function(sessionId){
+    return playerIdToInfo[sessionId].cards;
+};
 
 exports.init = function(playerIdArray){
 
@@ -54,13 +58,17 @@ exports.init = function(playerIdArray){
 
     Communication.onMessageFromClient('piece.select', function(sessionId, message){
 
-        if (!playerToPiece[sessionId]){
+        if (!playerIdToInfo[sessionId]){
             Communication.sendMessageToClient('panel.addMessage', {
                 message: "Player " + sessionId + " has picked " + nameToDisplay[message.piece]
             });
         }
-        playerToPiece[sessionId] = message.piece;
-        if (_.size(playerToPiece) === 4 && !cardsDealt){
+        playerIdToInfo[sessionId] = {
+            piece: message.piece,
+            cards: []
+        };
+
+        if (_.size(playerIdToInfo) === 4 && !cardsDealt){
 
             Communication.sendMessageToClient('panel.addMessage', {
                 message: "Let the game begin! Here are your cards."
@@ -69,7 +77,7 @@ exports.init = function(playerIdArray){
             // Move remaining pieces
             var pieces = [];
             _.each(nameToDisplay, function(value, key){
-                if (!playerToPiece[key]){
+                if (!playerIdToInfo[key]){
                     pieces.push(key);
                 }
             });
@@ -96,9 +104,12 @@ exports.init = function(playerIdArray){
                 Communication.sendMessageToClientBySessionId(sessionId, 'card.add', {
                     card: card
                 });
+
+                playerIdToInfo[sessionId].cards.push(card);
             }
 
             cardsDealt = true;
+            console.log(JSON.stringify(playerIdToInfo));
         }
 
     });
