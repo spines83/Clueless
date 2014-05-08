@@ -10,10 +10,12 @@ define([
             messageDiv.html('<textarea id="messagePanel" rows="7" cols="142"></textarea>');
             Communication.onMessageFromServer('panel.addMessage', function(obj){
                 exposed.addMessage(obj.message);
-            })
+            });
         },
         addMessage: function(messageText){
             $('#messagePanel').append(messageText + "\n");
+            var textarea = document.getElementById('messagePanel');
+            textarea.scrollTop = textarea.scrollHeight;
         }
     };
 
