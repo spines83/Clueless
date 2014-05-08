@@ -61,7 +61,7 @@ define([
     
     // Update detective notes view when dealt cards
      Communication.onMessageFromServer('card.add', function(obj){
-		 var id = "#"+obj.card;
+		 var id = "#"+obj.card.replace(/ /g, '').replace(/\./g,'');
 		 $(id).prop('checked', true);
 		 $(id).prop('disabled', true);
 	 });

@@ -5,7 +5,7 @@ exports.newDeck = function(){
 }
 
 var allCards = {
-    rooms: ["Study", "Hall", "Lounge", "Library", "Billard Room",
+    rooms: ["Study", "Hall", "Lounge", "Library", "Billiard Room",
             "Dining Room", "Conservatory", "Ball Room", "Kitchen"],
     weapons: ["Candlestick", "Knife", "Lead Pipe", "Revolver",
               "Rope", "Wrench"],
