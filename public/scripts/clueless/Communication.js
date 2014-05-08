@@ -37,6 +37,11 @@ define([
             subscribers[channel].push(callback);
         },
         sendMessageToServer: function(channel, message){
+            console.log(JSON.stringify({
+                sessionId: sessionId,
+                channel: channel,
+                message: message
+            }));
             ws.send(JSON.stringify({
                 sessionId: sessionId,
                 channel: channel,
