@@ -1,9 +1,11 @@
+
+
 define([
     'jquery',
     'clueless/Communication',
     'clueless/GameState'
 ], function($, Communication, GameState){
-
+	var _ = require(['underscore']);
     var stage; 	 	   	//the board canvas object
     var width = 800;   	//width of the board game in pixels
     var height = 600;  	//height of the board game in pixels
@@ -19,6 +21,31 @@ define([
 
     Communication.onMessageFromServer('pieces.move.remaining', function(message){
         moveRemainingPieces(message.pieces);
+    });
+    
+    // handle responding to suggestions
+    Communication.onMessageFromServer('player.suggestion', function(message){
+		var htmlstring = '';
+		if (message.type == 1) { // this is the normal case
+			$('#suggestionDiv').css('visibility', 'hidden');
+			$('#accusationDiv').css('visibility', 'hidden');
+			$('#suggestionResponseDiv').css('visibility', 'visible');
+			htmlstring += 'You have cards to respond to so-and-sos suggestion<br/>Select one of the following to show to all players:<br/><br/>';
+			_.each(message.cards, function(value, index){
+				alert(value);
+				htmlstring += '<input type="radio" name="response" value="'+value+'"/>'+getWeaponName(value)+getFullName(value)+'<br/>';
+			});
+			htmlstring += '<br/><input type="submit" value="Send Response" id="suggestionResponseButton"/>';
+			alert(htmlstring);
+			$('#suggestionResponseDiv').html(htmlstring);
+			
+			$("#suggestionResponseButton").on('click', function() {
+				//do something... (send the response to the suggestion to all, switch to another players turn)
+				});
+		}
+		if (message.type == 0) { //this is the no response case (no one has the cards, or you selected your own cards...)
+			// not done yet...
+		}  
     });
 
 	// Handler for piece movement messages coming from the server

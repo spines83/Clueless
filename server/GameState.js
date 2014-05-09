@@ -158,6 +158,39 @@ exports.init = function(playerIdArray){
 			}, 500);
 		}
     });
+    //determines which player should respond to a suggestion
+    Communication.onMessageFromClient('player.suggestion', function(sessionId, message){
+		var i = playerIds.length;
+		var playerIndex = -1;
+		var cards = [];
+		var type;
+		while (i > 0) {
+			i = i - 1;
+			_.each(exports.getCardsBySessionId(playerIds[i]), function(value, index){
+				if ((message.suspect == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) || (message.room == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) || (message.weapon == value.replace(/ /g, '').replace(/\./g,'').toLowerCase())) {
+					playerIndex = i;
+					i = -1;
+					if (message.suspect == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) { cards.push(message.suspect);}
+					if (message.room == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) { cards.push(message.room);}
+					if (message.weapon == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) { cards.push(message.weapon);}
+				}
+			});
+		}
+		if (sessionId === playerIds[playerIndex]) { //the case where the only person holding matching cards is the player who made the suggestion
+			type = 0;
+		}
+		if (playerIndex === -1) { //the case where no players have any of the suggested cards
+			type = 0;
+		}
+		else { //the normal case (someone has cards that match the suggestion)
+			type = 1;
+			Communication.sendMessageToClientBySessionId(playerIds[playerIndex], 'player.suggestion', {
+					type: type,
+					cards: cards
+				});
+		}
+	});
+	
     //echo messages back to clients that should be added to the message panel
     Communication.onMessageFromClient('panel.addMessage', function(sessionId, message){
         Communication.sendMessageToClient('panel.addMessage', message);
