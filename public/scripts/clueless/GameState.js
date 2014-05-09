@@ -216,7 +216,10 @@ define([
 			}
 			
 			this.getRoomName = function (room) {
-				return rooms[room]['name'];
+				if (rooms.indexOf(room != -1) {
+					return rooms[room]['name'];
+				}
+				else { return '';}
 			}
 			
 			//check for valid moves

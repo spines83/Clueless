@@ -33,7 +33,7 @@ define([
 			htmlstring += 'You have cards to respond to so-and-sos suggestion<br/>Select one of the following to show to all players:<br/><br/>';
 			_.each(message.cards, function(value, index){
 				alert(value);
-				htmlstring += '<input type="radio" name="response" value="'+value+'"/>'+getWeaponName(value)+getFullName(value)+'<br/>';
+				htmlstring += '<input type="radio" name="response" value="'+value+'"/>'+getWeaponName(value)+getFullName(value)+gameState.getRoomName(value)+'<br/>';
 			});
 			htmlstring += '<br/><input type="submit" value="Send Response" id="suggestionResponseButton"/>';
 			alert(htmlstring);
