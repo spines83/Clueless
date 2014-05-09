@@ -2,6 +2,7 @@ var Communication = require('./Communication.js');
 var _ = require('underscore');
 
 var playerIds = [];
+var moveIdArray = [];
 
 var moveNo = 0;
 var cardsDealt = false;
@@ -52,7 +53,8 @@ exports.getCardsBySessionId = function(sessionId){
 
 exports.init = function(playerIdArray){
 
-    playerIds = playerIdArray;
+    playerIds = playerIdArray.slice();
+    moveIdArray = moveIdArray.slice();
 
     Communication.sendMessageToClient('panel.addMessage', {
         message: "Lobby full, please select your pieces!"
@@ -119,7 +121,7 @@ exports.init = function(playerIdArray){
     Communication.onMessageFromClient('player.move', function(sessionId, message){
         if (cardsDealt){
             moveNo = moveNo + 1;
-            var sessionId = playerIdArray[moveNo % playerIdArray.length];
+            var sessionId = moveIdArray[moveNo % moveIdArray.length];
             console.log('move: ' + moveNo);
             console.log('turn: ' + sessionId);
 
