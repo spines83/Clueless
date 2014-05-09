@@ -1,11 +1,10 @@
-
-
 define([
     'jquery',
+    'underscore',
     'clueless/Communication',
     'clueless/GameState'
-], function($, Communication, GameState){
-	var _ = require(['underscore']);
+], function($, _, Communication, GameState){
+//	var _ = require(['underscore']);
     var stage; 	 	   	//the board canvas object
     var width = 800;   	//width of the board game in pixels
     var height = 600;  	//height of the board game in pixels
