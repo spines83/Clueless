@@ -216,7 +216,7 @@ define([
 			}
 			
 			this.getRoomName = function (room) {
-				if (rooms.indexOf(room != -1) {
+				if (rooms.indexOf(room != -1)) {
 					return rooms[room]['name'];
 				}
 				else { return '';}
