@@ -79,19 +79,19 @@ define([
 			// the Hallway between the Conservatory and Ball Room
 			rooms['conservatoryBallRoomHall'] = new Array();
 			rooms['conservatoryBallRoomHall']['coordinates'] = new Array(200,300,490,565);
-			rooms['conservatoryBallRoomHall']['targets'] = new Array('conservatory','ballRoom');
+			rooms['conservatoryBallRoomHall']['targets'] = new Array('conservatory','ballroom');
 			rooms['conservatoryBallRoomHall']['center'] = new Array(250,528);
 			rooms['conservatoryBallRoomHall']['name'] = 'hallway';
 			// the Ball Room
-			rooms['ballRoom'] = new Array();
-			rooms['ballRoom']['coordinates'] = new Array(300,500,450,600);
-			rooms['ballRoom']['targets'] = new Array('conservatoryBallRoomHall','ballRoomBilliardRoomHall','ballRoomKitchenHall');
-			rooms['ballRoom']['center'] = new Array(400,525);
-			rooms['ballRoom']['name'] = 'ball room';
+			rooms['ballroom'] = new Array();
+			rooms['ballroom']['coordinates'] = new Array(300,500,450,600);
+			rooms['ballroom']['targets'] = new Array('conservatoryBallRoomHall','ballRoomBilliardRoomHall','ballRoomKitchenHall');
+			rooms['ballroom']['center'] = new Array(400,525);
+			rooms['ballroom']['name'] = 'ball room';
 			// the Hallway between the Ball Room and Kitchen
 			rooms['ballRoomKitchenHall'] = new Array();
 			rooms['ballRoomKitchenHall']['coordinates'] = new Array(500,600,490,565);
-			rooms['ballRoomKitchenHall']['targets'] = new Array('ballRoom','kitchen');
+			rooms['ballRoomKitchenHall']['targets'] = new Array('ballroom','kitchen');
 			rooms['ballRoomKitchenHall']['center'] = new Array(550,528);
 			rooms['ballRoomKitchenHall']['name'] = 'hallway';
 			// the Kitchen
@@ -103,19 +103,19 @@ define([
 			// the Hallway between the Kitchen and Dining Room
 			rooms['kitchenDiningRoomHall'] = new Array();
 			rooms['kitchenDiningRoomHall']['coordinates'] = new Array(650,750,375,450);
-			rooms['kitchenDiningRoomHall']['targets'] = new Array('kitchen','diningRoom');
+			rooms['kitchenDiningRoomHall']['targets'] = new Array('kitchen','diningroom');
 			rooms['kitchenDiningRoomHall']['center'] = new Array(700,412);
 			rooms['kitchenDiningRoomHall']['name'] = 'hallway';
 			// the Dining Room
-			rooms['diningRoom'] = new Array();
-			rooms['diningRoom']['coordinates'] = new Array(600,800,225,375);
-			rooms['diningRoom']['targets'] = new Array('kitchenDiningRoomHall','diningRoomLoungeHall','diningRoomBilliardRoomHall');
-			rooms['diningRoom']['center'] = new Array(700,300);
-			rooms['diningRoom']['name'] = 'dining room';
+			rooms['diningroom'] = new Array();
+			rooms['diningroom']['coordinates'] = new Array(600,800,225,375);
+			rooms['diningroom']['targets'] = new Array('kitchenDiningRoomHall','diningRoomLoungeHall','diningRoomBilliardRoomHall');
+			rooms['diningroom']['center'] = new Array(700,300);
+			rooms['diningroom']['name'] = 'dining room';
 			// the Hallway between the Dining Room and Lounge
 			rooms['diningRoomLoungeHall'] = new Array();
 			rooms['diningRoomLoungeHall']['coordinates'] = new Array(650,750,150,225);
-			rooms['diningRoomLoungeHall']['targets'] = new Array('diningRoom','lounge');
+			rooms['diningRoomLoungeHall']['targets'] = new Array('diningroom','lounge');
 			rooms['diningRoomLoungeHall']['center'] = new Array(700,188);
 			rooms['diningRoomLoungeHall']['name'] = 'hallway';
 			// the Lounge
@@ -145,31 +145,31 @@ define([
 			// the Hallway between the Hall and Billiard Room
 			rooms['hallBilliardRoomHall'] = new Array();
 			rooms['hallBilliardRoomHall']['coordinates'] = new Array(350,450,150,225);
-			rooms['hallBilliardRoomHall']['targets'] = new Array('billiardRoom','hall');
+			rooms['hallBilliardRoomHall']['targets'] = new Array('billiardroom','hall');
 			rooms['hallBilliardRoomHall']['center'] = new Array(400,188);
 			rooms['hallBilliardRoomHall']['name'] = 'hallway';
 			// the Billiard Room
-			rooms['billiardRoom'] = new Array();
-			rooms['billiardRoom']['coordinates'] = new Array(300,500,225,375);
-			rooms['billiardRoom']['targets'] = new Array('hallBilliardRoomHall','diningRoomBilliardRoomHall','ballRoomBilliardRoomHall','libraryBilliardRoomHall');
-			rooms['billiardRoom']['center'] = new Array(400,300);
-			rooms['billiardRoom']['name'] = 'billiard room';
+			rooms['billiardroom'] = new Array();
+			rooms['billiardroom']['coordinates'] = new Array(300,500,225,375);
+			rooms['billiardroom']['targets'] = new Array('hallBilliardRoomHall','diningRoomBilliardRoomHall','ballRoomBilliardRoomHall','libraryBilliardRoomHall');
+			rooms['billiardroom']['center'] = new Array(400,300);
+			rooms['billiardroom']['name'] = 'billiard room';
 			// the Hallway between the Dining Room and Billiard Room
 			rooms['diningRoomBilliardRoomHall'] = new Array();
 			rooms['diningRoomBilliardRoomHall']['coordinates'] = new Array(500,600,265,340);
-			rooms['diningRoomBilliardRoomHall']['targets'] = new Array('billiardRoom','diningRoom');
+			rooms['diningRoomBilliardRoomHall']['targets'] = new Array('billiardroom','diningroom');
 			rooms['diningRoomBilliardRoomHall']['center'] = new Array(550,303);
 			rooms['diningRoomBilliardRoomHall']['name'] = 'hallway';
 			// the Hallway between the Library and Billiard Room
 			rooms['libraryBilliardRoomHall'] = new Array();
 			rooms['libraryBilliardRoomHall']['coordinates'] = new Array(200,300,265,340);
-			rooms['libraryBilliardRoomHall']['targets'] = new Array('billiardRoom','library');
+			rooms['libraryBilliardRoomHall']['targets'] = new Array('billiardroom','library');
 			rooms['libraryBilliardRoomHall']['center'] = new Array(250,303);
 			rooms['libraryBilliardRoomHall']['name'] = 'hallway';
 			// the Hallway between the Ball Room and Billiard Room
 			rooms['ballRoomBilliardRoomHall'] = new Array();
 			rooms['ballRoomBilliardRoomHall']['coordinates'] = new Array(350,450,375,450);
-			rooms['ballRoomBilliardRoomHall']['targets'] = new Array('billiardRoom','ballRoom');
+			rooms['ballRoomBilliardRoomHall']['targets'] = new Array('billiardroom','ballroom');
 			rooms['ballRoomBilliardRoomHall']['center'] = new Array(400,412);
 			rooms['ballRoomBilliardRoomHall']['name'] = 'hallway';
 			// the Lounge Secret Passage (points to the Conservatory)
@@ -216,7 +216,7 @@ define([
 			}
 			
 			this.getRoomName = function (room) {
-				if (rooms.indexOf(room != -1)) {
+				if (rooms.indexOf(room)) {
 					return rooms[room]['name'];
 				}
 				else { return '';}

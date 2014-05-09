@@ -4,7 +4,6 @@ define([
     'clueless/Communication',
     'clueless/GameState'
 ], function($, _, Communication, GameState){
-//	var _ = require(['underscore']);
     var stage; 	 	   	//the board canvas object
     var width = 800;   	//width of the board game in pixels
     var height = 600;  	//height of the board game in pixels
@@ -26,20 +25,24 @@ define([
     Communication.onMessageFromServer('player.suggestion', function(message){
 		var htmlstring = '';
 		if (message.type == 1) { // this is the normal case
+			alert('case 1');
 			$('#suggestionDiv').css('visibility', 'hidden');
 			$('#accusationDiv').css('visibility', 'hidden');
 			$('#suggestionResponseDiv').css('visibility', 'visible');
-			htmlstring += 'You have cards to respond to so-and-sos suggestion<br/>Select one of the following to show to all players:<br/><br/>';
+			htmlstring += 'You have cards to respond to '+getFullName(message.player)+'\'s suggestion.<br/><br/>Select one of the following to show to all players:<br/><br/>';
 			_.each(message.cards, function(value, index){
-				alert(value);
 				htmlstring += '<input type="radio" name="response" value="'+value+'"/>'+getWeaponName(value)+getFullName(value)+gameState.getRoomName(value)+'<br/>';
 			});
 			htmlstring += '<br/><input type="submit" value="Send Response" id="suggestionResponseButton"/>';
-			alert(htmlstring);
 			$('#suggestionResponseDiv').html(htmlstring);
 			
 			$("#suggestionResponseButton").on('click', function() {
-				//do something... (send the response to the suggestion to all, switch to another players turn)
+				//send the response to the suggestion to all, switch to another players turn)
+				var card = $('input[name=response]:checked').val().replace(/ /g, '').replace(/\./g,'').toLowerCase();
+				Communication.sendMessageToServer('panel.addMessage', {
+					message: getFullName(player.cname)+' reveals the '+getWeaponName(card)+getFullName(card)+gameState.getRoomName(card)+' was not involved in the crime.'
+					});
+				$('#suggestionResponseDiv').css('visibility', 'hidden');
 				});
 		}
 		if (message.type == 0) { //this is the no response case (no one has the cards, or you selected your own cards...)
@@ -323,7 +326,7 @@ define([
 	//Make a suggestion
 	$("#suggestionButton").on('click', makeSuggestion);
 	function makeSuggestion() {
-		var validRooms = new Array('study','hall','lounge','library','billiardRoom','diningRoom','conservatory','ballRoom','kitchen');
+		var validRooms = new Array('study','hall','lounge','library','billiardroom','diningroom','conservatory','ballroom','kitchen');
 		if (validRooms.indexOf(player.currentRoom) != -1) {
 			Communication.sendMessageToServer('player.suggestion', {
 				player: player.cname,
