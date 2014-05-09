@@ -186,7 +186,8 @@ exports.init = function(playerIdArray){
 			type = 1;
 			Communication.sendMessageToClientBySessionId(playerIds[playerIndex], 'player.suggestion', {
 					type: type,
-					cards: cards
+					cards: cards,
+					player: message.player
 				});
 		}
 	});
