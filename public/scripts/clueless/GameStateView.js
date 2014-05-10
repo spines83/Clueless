@@ -27,6 +27,7 @@ define([
 		if (message.type == 1) { // this is the normal case
 			$('#suggestionDiv').css('visibility', 'hidden');
 			$('#accusationDiv').css('visibility', 'hidden');
+			$('#instructionsDiv').css('visibility', 'hidden');
 			$('#suggestionResponseDiv').css('visibility', 'visible');
 			htmlstring += '<h2>Reveal A Card</h2>You have cards to respond to '+getFullName(message.player)+'\'s suggestion.<br/><br/>Select one of the following to show to all players:<br/><br/>';
 			_.each(message.cards, function(value, index){
@@ -44,6 +45,7 @@ define([
 				$('#suggestionResponseDiv').css('visibility', 'hidden');
 				$('#suggestionDiv').css('visibility', 'visible');
 				$('#accusationDiv').css('visibility', 'visible');
+				$('#instructionsDiv').css('visibility', 'visible');
 				});
 		}
 		if (message.type == 0) { //this is the no response case (no one has the cards, or you selected your own cards...)
@@ -240,6 +242,7 @@ define([
                 player: player.cname,
                 room: player.currentRoom
             });
+            $('#nameDiv').html(getFullName(player.cname));
             dragDrop(); //once piece is created, call the dragDrop function to handle drags & drops
         }
     }
