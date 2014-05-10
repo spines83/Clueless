@@ -54,7 +54,7 @@ exports.getCardsBySessionId = function(sessionId){
 exports.init = function(playerIdArray){
 
     playerIds = playerIdArray.slice();
-    moveIdArray = moveIdArray.slice();
+    moveIdArray = playerIdArray.slice();
 
     Communication.sendMessageToClient('panel.addMessage', {
         message: "Lobby full, please select your pieces!"
@@ -146,12 +146,20 @@ exports.init = function(playerIdArray){
 			Communication.sendMessageToClient('panel.addMessage', {
 				message: nameToDisplay[message.player]+'won the game. '+nameToDisplay[message.suspect]+' is guilty of the crime.'
 				}, 250);
+
+            console.log(sessionId);
+            console.log(message);
 			Communication.sendMessageToClientBySessionId(sessionId, 'panel.addMessage', {
 				message: "You've won!"
 			}, 500);
 		}
 		//game is lost (by the accusing player)
 		else {
+            var idx = moveIdArray.indexOf(sessionId.toString());
+            if (idx != -1){
+                moveIdArray.splice(idx, 1);
+            }
+            console.log(moveIdArray);
 			Communication.sendMessageToClient('panel.addMessage', {
 				message: nameToDisplay[message.player]+' unfairly accused '+nameToDisplay[message.suspect]+' of committing the crime and is now out of the game.'
 				}, 250);
