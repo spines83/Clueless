@@ -346,10 +346,6 @@ define([
 				room: player.currentRoom,
 				weapon: $("#weapon_suggestion").val()
 				});
-			Communication.sendMessageToServer('player.move', {
-				player: $("#suspect_suggestion").val(),
-				room: player.currentRoom
-				});
 			Communication.sendMessageToServer('panel.addMessage', {
 				message: getSuggestionMessage($("#suspect_suggestion").val(), $("#weapon_suggestion").val())
 				});

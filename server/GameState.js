@@ -169,6 +169,10 @@ exports.init = function(playerIdArray){
     });
     //determines which player should respond to a suggestion
     Communication.onMessageFromClient('player.suggestion', function(sessionId, message){
+		Communication.sendMessageToClient('player.move', {
+				player: message.suspect,
+				room: message.room
+				});
 		var i = playerIds.length;
 		var playerIndex = -1;
 		var cards = [];
@@ -183,7 +187,7 @@ exports.init = function(playerIdArray){
 					value = value.split('.')[1].replace(/ /g, '').replace(/\./g,'').toLowerCase();
 				}
 				if ((message.suspect == value) || (message.room == value) || (message.weapon == value)) {
-					playerIndex = i;
+					if (playerIndex === -1) { playerIndex = i;}
 					i = 0;
 					if (message.suspect == value) { cards.push(message.suspect);}
 					if (message.room == value) { cards.push(message.room);}
