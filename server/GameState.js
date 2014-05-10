@@ -120,10 +120,10 @@ exports.init = function(playerIdArray){
 
     Communication.onMessageFromClient('player.move', function(sessionId, message){
         if (cardsDealt){
-            moveNo = moveNo + 1;
             var sessionId = moveIdArray[moveNo % moveIdArray.length];
             console.log('move: ' + moveNo);
             console.log('turn: ' + sessionId);
+            moveNo = moveNo + 1;
 
             // Used by Message Panel
             setTimeout(function(){

@@ -12,7 +12,7 @@ require([
     'clueless/Communication',
     'clueless/MessageView'
 ], function($, GameStateView, Communication, MessageView){
-    Communication.init('localhost', 4000);
+    Communication.init('192.168.1.5', 4000);
     MessageView.init();
     GameStateView.drawPieces();
 });
