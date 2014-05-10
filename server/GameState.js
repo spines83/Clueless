@@ -140,7 +140,7 @@ exports.init = function(playerIdArray){
     //determines whether the game has been won, sends message out to players
     Communication.onMessageFromClient('player.accusation', function(sessionId, message){
 		//game is won	
-		if ((message.suspect === deck.suspect) && (message.weapon === deck.weapon) && (message.room === deck.room)) {
+		if ((message.suspect === deck.suspect.split('.')[1].replace(/ /g, '').replace(/\./g,'').toLowerCase()) && (message.weapon === deck.weapon.replace(/ /g, '').replace(/\./g,'').toLowerCase()) && (message.room === deck.room.replace(/ /g, '').replace(/\./g,'').toLowerCase())) {
 			Communication.sendMessageToClient('panel.addMessage', {
 				message: nameToDisplay[message.player]+'won the game. '+nameToDisplay[message.suspect]+' is guilty of the crime.'
 				}, 250);

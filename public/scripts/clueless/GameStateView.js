@@ -330,16 +330,16 @@ define([
 		if (validRooms.indexOf(player.currentRoom) != -1) {
 			Communication.sendMessageToServer('player.suggestion', {
 				player: player.cname,
-				suspect: $("#suspect").val(),
+				suspect: $("#suspect_suggestion").val(),
 				room: player.currentRoom,
-				weapon: $("#weapon").val()
+				weapon: $("#weapon_suggestion").val()
 				});
 			Communication.sendMessageToServer('player.move', {
-				player: $("#suspect").val(),
+				player: $("#suspect_suggestion").val(),
 				room: player.currentRoom
 				});
 			Communication.sendMessageToServer('panel.addMessage', {
-				message: getSuggestionMessage($("#suspect").val(), $("#weapon").val())
+				message: getSuggestionMessage($("#suspect_suggestion").val(), $("#weapon_suggestion").val())
 				});
 			}
 		else { alert('Sorry, you have to be in a room to make a suggestion.');}
@@ -361,13 +361,13 @@ define([
 	$("#accusationButton").on('click', makeAccusation);
 	function makeAccusation() {
 		Communication.sendMessageToServer('panel.addMessage', {
-			message: getAccusationMessage($("#suspect").val(),$("#room").val(), $("#weapon").val())
+			message: getAccusationMessage($("#suspect_accusation").val(),$("#room_accusation").val(), $("#weapon_accusation").val())
 			});
 		Communication.sendMessageToServer('player.accusation', {
 			player: player.cname,
-			suspect: $("#suspect").val(),
-            room: $("#room").val(),
-            weapon: $("#weapon").val()
+			suspect: $("#suspect_accusation").val(),
+            room: $("#room_accusation").val(),
+            weapon: $("#weapon_accusation").val()
             },500);
 
 	}
