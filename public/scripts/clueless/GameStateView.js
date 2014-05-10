@@ -38,9 +38,17 @@ define([
 			
 			$("#suggestionResponseButton").on('click', function() {
 				//send the response to the suggestion to all, switch to another players turn)
-				var card = $('input[name=response]:checked').val().replace(/ /g, '').replace(/\./g,'').toLowerCase();
+				var card = $('input[name=response]:checked').val();
+				var response = getFullName(player.cname)+' reveals ';
+				if ((getWeaponName(card) != '') || (gameState.getRoomName(card) != '')) {
+						response += 'the '+getWeaponName(card)+gameState.getRoomName(card);
+					}
+					else {
+						response += getFullName(card);
+					}
+				response += ' was not involved in the crime.';
 				Communication.sendMessageToServer('panel.addMessage', {
-					message: getFullName(player.cname)+' reveals the '+getWeaponName(card)+getFullName(card)+gameState.getRoomName(card)+' was not involved in the crime.'
+					message: response
 					});
 				$('#suggestionResponseDiv').css('visibility', 'hidden');
 				$('#suggestionDiv').css('visibility', 'visible');

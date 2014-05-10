@@ -177,12 +177,18 @@ exports.init = function(playerIdArray){
 		while (i > 0) {
 			i = i - 1;
 			_.each(exports.getCardsBySessionId(playerIds[i]), function(value, index){
-				if ((message.suspect == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) || (message.room == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) || (message.weapon == value.replace(/ /g, '').replace(/\./g,'').toLowerCase())) {
+				if(value.indexOf('.') === -1) { //if the value of the card isn't a suspect, then there is no period, no reason to split the string
+					value = value.replace(/ /g, '').toLowerCase();
+				}
+				else { //if the card is a suspect then it needs to be split and only the proper name taken
+					value = value.split('.')[1].replace(/ /g, '').replace(/\./g,'').toLowerCase();
+				}
+				if ((message.suspect == value) || (message.room == value) || (message.weapon == value)) {
 					playerIndex = i;
-					i = -1;
-					if (message.suspect == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) { cards.push(message.suspect.split('.')[1].replace(/ /g, '').replace(/\./g,'').toLowerCase());}
-					if (message.room == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) { cards.push(message.room.replace(/ /g, '').replace(/\./g,'').toLowerCase());}
-					if (message.weapon == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) { cards.push(message.weapon.replace(/ /g, '').replace(/\./g,'').toLowerCase());}
+					i = 0;
+					if (message.suspect == value) { cards.push(message.suspect);}
+					if (message.room == value) { cards.push(message.room);}
+					if (message.weapon == value) { cards.push(message.weapon);}
 				}
 			});
 		}

@@ -216,7 +216,7 @@ define([
 			}
 			
 			this.getRoomName = function (room) {
-				if ((room === 'study') || (room === 'library') || (room == 'hall') || (room === 'diningroom') || (room === 'billiardroom') || (room === 'lounge') || (room === 'ballroom') || (room === 'conservatory') || (room === 'kitchen')){
+				if ((room === 'study') || (room === 'library') || (room == 'hall') || (room === 'diningroom') || (room === 'billiardroom') || (room === 'lounge') || (room === 'ballroom') || (room === 'conservatory') || (room === 'kitchen') || (room === 'kitchenSecretPassage') || (room === 'studySecretPassage') || (room === 'conservatorySecretPassage') || (room === 'loungeSecretPassage')){
 					return rooms[room]['name'];
 				} else {
 					return '';
