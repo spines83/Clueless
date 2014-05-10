@@ -69,6 +69,13 @@ div {
 	background-color:#FFD073;
 	border:5px solid #000000;
 }
+.suggestion {
+	z-index:2;
+}
+.accusation {
+	z-index:2;
+	top:300px;
+}
 .logo {
 	z-index:1;
 	top:550px;
