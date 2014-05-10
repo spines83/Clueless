@@ -49,9 +49,7 @@ define([
 				});
 		}
 		if (message.type == 0) { //this is the no response case (no one has the cards, or you selected your own cards...)
-			Communication.sendMessageToServer('panel.addMessage', {
-				message: 'No one responded to this suggestion...'
-			});
+			//nothing to do..
 		}  
     });
 
