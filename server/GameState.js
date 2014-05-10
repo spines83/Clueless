@@ -188,9 +188,19 @@ exports.init = function(playerIdArray){
 		}
 		if (sessionId === playerIds[playerIndex]) { //the case where the only person holding matching cards is the player who made the suggestion
 			type = 0;
+			Communication.sendMessageToClientBySessionId(playerIds[playerIndex], 'player.suggestion', {
+					type: type,
+					cards: cards,
+					player: message.player
+				});
 		}
 		if (playerIndex === -1) { //the case where no players have any of the suggested cards
 			type = 0;
+			Communication.sendMessageToClientBySessionId(playerIds[playerIndex], 'player.suggestion', {
+					type: type,
+					cards: cards,
+					player: message.player
+				});
 		}
 		else { //the normal case (someone has cards that match the suggestion)
 			type = 1;

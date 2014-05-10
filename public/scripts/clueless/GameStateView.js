@@ -49,7 +49,9 @@ define([
 				});
 		}
 		if (message.type == 0) { //this is the no response case (no one has the cards, or you selected your own cards...)
-			// not done yet...
+			Communication.sendMessageToServer('panel.addMessage', {
+				message: 'No one responded to this suggestion...'
+			});
 		}  
     });
 
@@ -330,7 +332,7 @@ define([
 	//Make a suggestion
 	$("#suggestionButton").on('click', makeSuggestion);
 	function makeSuggestion() {
-		var validRooms = new Array('study','hall','lounge','library','billiardroom','diningroom','conservatory','ballroom','kitchen');
+		var validRooms = new Array('study','hall','lounge','library','billiardroom','diningroom','conservatory','ballroom','kitchen','loungeSecretPassage','conservatorySecretPassage','studySecretPassage','kitchenSecretPassage');
 		if (validRooms.indexOf(player.currentRoom) != -1) {
 			Communication.sendMessageToServer('player.suggestion', {
 				player: player.cname,
