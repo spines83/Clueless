@@ -2,6 +2,7 @@ var Communication = require('./Communication.js');
 var _ = require('underscore');
 
 var playerIds = [];
+var moveIdArray = [];
 
 var moveNo = 0;
 var cardsDealt = false;
@@ -25,18 +26,18 @@ var roomToDisplay = {
     libraryConservatoryHall: "the hallway between the Library and the Conservatory",
     conservatory: "the Conservatory",
     conservatoryBallRoomHall: "the hallway between the Conservatory and the Ballroom",
-    ballRoom: "the Ballroom",
+    ballroom: "the Ballroom",
     ballRoomKitchenHall: "the hallway between the Ballroom and the Kitchen",
     kitchen: "the Kitchen",
     kitchenDiningRoomHall: "the hallway between the Kitchen and the Dining Room",
-    diningRoom: "the Dining Room",
+    diningroom: "the Dining Room",
     diningRoomLoungeHall: "the hallway between the Dining Room and the Lounge",
     lounge: "the Lounge",
     loungeHallHall: "the hallway between the Lounge and the Hall",
     hall: "the Hall",
     studyHallHall: "the hallway between the Study and the Hall",
     hallBilliardRoomHall: "the hallway between the Billiard Room and the Hall",
-    billiardRoom: "the Billiard Room",
+    billiardroom: "the Billiard Room",
     diningRoomBilliardRoomHall: "the hallway between the Dining Room and the Billiard Room",
     libraryBilliardRoomHall: "the hallway between the Library and the Billiard Room",
     ballRoomBilliardRoomHall: "the hallway between the Ball Room and the Billiard Room",
@@ -52,7 +53,8 @@ exports.getCardsBySessionId = function(sessionId){
 
 exports.init = function(playerIdArray){
 
-    playerIds = playerIdArray;
+    playerIds = playerIdArray.slice();
+    moveIdArray = playerIdArray.slice();
 
     Communication.sendMessageToClient('panel.addMessage', {
         message: "Lobby full, please select your pieces!"
@@ -119,7 +121,7 @@ exports.init = function(playerIdArray){
     Communication.onMessageFromClient('player.move', function(sessionId, message){
         if (cardsDealt){
             moveNo = moveNo + 1;
-            var sessionId = playerIdArray[moveNo % playerIdArray.length];
+            var sessionId = moveIdArray[moveNo % moveIdArray.length];
             console.log('move: ' + moveNo);
             console.log('turn: ' + sessionId);
 
@@ -144,12 +146,20 @@ exports.init = function(playerIdArray){
 			Communication.sendMessageToClient('panel.addMessage', {
 				message: nameToDisplay[message.player]+'won the game. '+nameToDisplay[message.suspect]+' is guilty of the crime.'
 				}, 250);
+
+            console.log(sessionId);
+            console.log(message);
 			Communication.sendMessageToClientBySessionId(sessionId, 'panel.addMessage', {
 				message: "You've won!"
 			}, 500);
 		}
 		//game is lost (by the accusing player)
 		else {
+            var idx = moveIdArray.indexOf(sessionId.toString());
+            if (idx != -1){
+                moveIdArray.splice(idx, 1);
+            }
+            console.log(moveIdArray);
 			Communication.sendMessageToClient('panel.addMessage', {
 				message: nameToDisplay[message.player]+' unfairly accused '+nameToDisplay[message.suspect]+' of committing the crime and is now out of the game.'
 				}, 250);
