@@ -28,7 +28,7 @@ define([
 			$('#suggestionDiv').css('visibility', 'hidden');
 			$('#accusationDiv').css('visibility', 'hidden');
 			$('#suggestionResponseDiv').css('visibility', 'visible');
-			htmlstring += 'You have cards to respond to '+getFullName(message.player)+'\'s suggestion.<br/><br/>Select one of the following to show to all players:<br/><br/>';
+			htmlstring += '<h2>Reveal A Card</h2>You have cards to respond to '+getFullName(message.player)+'\'s suggestion.<br/><br/>Select one of the following to show to all players:<br/><br/>';
 			_.each(message.cards, function(value, index){
 				htmlstring += '<input type="radio" name="response" value="'+value+'"/>'+getWeaponName(value)+getFullName(value)+gameState.getRoomName(value)+'<br/>';
 			});

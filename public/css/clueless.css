@@ -71,10 +71,12 @@ div {
 }
 .suggestion {
 	z-index:2;
+	font-family:Helvetica,Arial,"Sans Serif";
 }
 .accusation {
 	z-index:2;
 	top:300px;
+	font-family:Helvetica,Arial,"Sans Serif";
 }
 .logo {
 	z-index:1;
