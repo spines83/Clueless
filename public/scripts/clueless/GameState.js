@@ -216,10 +216,11 @@ define([
 			}
 			
 			this.getRoomName = function (room) {
-				if (rooms.indexOf(room)) {
+				if ((room === 'study') || (room === 'library') || (room == 'hall') || (room === 'diningroom') || (room === 'billiardroom') || (room === 'lounge') || (room === 'ballroom') || (room === 'conservatory') || (room === 'kitchen')){
 					return rooms[room]['name'];
+				} else {
+					return '';
 				}
-				else { return '';}
 			}
 			
 			//check for valid moves

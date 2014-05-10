@@ -25,7 +25,6 @@ define([
     Communication.onMessageFromServer('player.suggestion', function(message){
 		var htmlstring = '';
 		if (message.type == 1) { // this is the normal case
-			alert('case 1');
 			$('#suggestionDiv').css('visibility', 'hidden');
 			$('#accusationDiv').css('visibility', 'hidden');
 			$('#suggestionResponseDiv').css('visibility', 'visible');
@@ -43,6 +42,8 @@ define([
 					message: getFullName(player.cname)+' reveals the '+getWeaponName(card)+getFullName(card)+gameState.getRoomName(card)+' was not involved in the crime.'
 					});
 				$('#suggestionResponseDiv').css('visibility', 'hidden');
+				$('#suggestionDiv').css('visibility', 'visible');
+				$('#accusationDiv').css('visibility', 'visible');
 				});
 		}
 		if (message.type == 0) { //this is the no response case (no one has the cards, or you selected your own cards...)

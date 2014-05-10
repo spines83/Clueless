@@ -180,9 +180,9 @@ exports.init = function(playerIdArray){
 				if ((message.suspect == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) || (message.room == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) || (message.weapon == value.replace(/ /g, '').replace(/\./g,'').toLowerCase())) {
 					playerIndex = i;
 					i = -1;
-					if (message.suspect == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) { cards.push(message.suspect);}
-					if (message.room == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) { cards.push(message.room);}
-					if (message.weapon == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) { cards.push(message.weapon);}
+					if (message.suspect == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) { cards.push(message.suspect.split('.')[1].replace(/ /g, '').replace(/\./g,'').toLowerCase());}
+					if (message.room == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) { cards.push(message.room.replace(/ /g, '').replace(/\./g,'').toLowerCase());}
+					if (message.weapon == value.replace(/ /g, '').replace(/\./g,'').toLowerCase()) { cards.push(message.weapon.replace(/ /g, '').replace(/\./g,'').toLowerCase());}
 				}
 			});
 		}
